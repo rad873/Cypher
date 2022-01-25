@@ -8,3 +8,22 @@ def LetterCounter(file,x):
     for letters in x:
        print(max(dictionary))
        dictionary[max(dictionary)] = 0 #reset max value to zero
+
+def LetterCounter(file,x):
+    dictionary = dict()
+    read_file = open(file)
+    for line in read_file:  # loops over each line in the file
+        for letter in line: #loops over each letter in the line
+            if letter not in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+                print('')
+            else:
+                if letter not in dictionary:
+                    dictionary[letter]= 1
+                else:
+                    dictionary[letter]+=1
+    #new_dict = dict()
+    #print(max(dictionary.keys))
+    #for character in range(x):
+    #    new_dict[] = dictionary.pop(max(dictionary))
+    return(dictionary)
+print(LetterCounter('cypher_text.txt',4))

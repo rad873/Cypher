@@ -15,7 +15,7 @@ def LetterCounter(file,x):
     for line in read_file:  # loops over each line in the file
         for letter in line: #loops over each letter in the line
             if letter not in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-                print('')
+                pass
             else:
                 if letter not in dictionary:
                     dictionary[letter]= 1

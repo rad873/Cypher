@@ -1,0 +1,10 @@
+def LetterCounter(file,x):
+    dictionary = dict()
+    read_file = open("cipher.txt")
+    for item in read_file:  # loops over each line in the file
+        line_stripped = item.strip()  # remove whitespace/linebreaks from end of line
+    num = line_stripped.count(item)
+    dictionary[item] = num
+    for letters in x:
+       print(max(dictionary))
+       dictionary[max(dictionary)] = 0 #reset max value to zero

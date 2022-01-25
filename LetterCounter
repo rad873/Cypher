@@ -1,16 +1,5 @@
 def LetterCounter(file,x):
     dictionary = dict()
-    read_file = open("cipher.txt")
-    for item in read_file:  # loops over each line in the file
-        line_stripped = item.strip()  # remove whitespace/linebreaks from end of line
-    num = line_stripped.count(item)
-    dictionary[item] = num
-    for letters in x:
-       print(max(dictionary))
-       dictionary[max(dictionary)] = 0 #reset max value to zero
-
-def LetterCounter(file,x):
-    dictionary = dict()
     read_file = open(file)
     for line in read_file:  # loops over each line in the file
         for letter in line: #loops over each letter in the line
@@ -27,3 +16,20 @@ def LetterCounter(file,x):
     #    new_dict[] = dictionary.pop(max(dictionary))
     return(dictionary)
 print(LetterCounter('cypher_text.txt',4))
+
+
+def LetterCounter(file):
+    list = []
+    dictionary = {}
+    alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    read_file = open(file)
+    for line in read_file:  #create list of all letters
+        for letter in line:
+            if letter in alphabet:
+                list.append(letter)
+    for letter in alphabet: #create dictionary with number of appearances
+        dictionary.update({letter: list.count(letter)})
+
+    for key, value in dictionary.items():#print most occuring key from dictionary value
+        if value == max(dictionary.values()):
+            print(key)

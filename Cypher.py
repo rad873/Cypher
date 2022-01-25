@@ -1,3 +1,4 @@
+
 def histogram(string):
     word_dict = dict()
     for letter in string:
@@ -6,3 +7,4 @@ def histogram(string):
         else:
             word_dict[letter] += 1
     return word_dict
+histogram('banana')

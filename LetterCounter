@@ -54,3 +54,25 @@ def LetterCounter(file,x):
     for r in dictionary_descending:
         print(r, dictionary[r])
 LetterCounter('cypher_text.txt',4)
+
+
+def LetterCounter(file,x):
+    dictionary = dict()
+    list = []
+    read_file = open(file)
+    for line in read_file:  # loops over each line in the file
+        for letter in line: #loops over each letter in the line
+            if letter not in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+                pass
+            else:
+                if letter not in dictionary:
+                    dictionary[letter]= 1
+                else:
+                    dictionary[letter]+=1
+    dictionary_descending =sorted(dictionary, key=dictionary.get, reverse= True)
+    for r in dictionary_descending:
+        list.append(r)
+        if len(list) > x - 1:
+            return(list)
+
+LetterCounter('cipher.txt',4)

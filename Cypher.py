@@ -53,4 +53,21 @@ with open(file) as word_list: #open example ciphertext file and put every word i
         result_list.append(new_word)
     print(result_list)
 
+
+
+def decrypt(file,x,y):
+    partial_keys = get_all_partial_keys(['e', 't', 'a', 'o'], LetterCounter(file, y)) #use partial keys to generate dictionaries set, y is the # of letters to get, bigger the y, bigger the # of key dicts(more combos)
+    dict_key = partial_keys[x]  #x is the chosen set of dict keys out of all possible combos
+    dict_key.items()
+    dict_key = {v:k for k,v in dict_key.items()}
+    print(dict_key)
+    with open(file) as word_list: #open example ciphertext file and put every word in a list
+        words_list = word_list.read().split()
+        print(words_list)
+        result_list = words_list[:] # create a copy of words_list to be decrypted, so the original list is preserved
+        for i, word in enumerate(result_list): #enumerate the words (strings) as numbers so that it can be modified
+            for key in dict_key:
+                    result_list[i] = result_list[i].replace(key,dict_key.get(key))
+        print(result_list)
+
 decrypt('ciphertext_ex.txt',1,4)

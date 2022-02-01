@@ -31,3 +31,26 @@ def decrypt(file, x): #this prints the set of all partial decryptions
             print(partial)
 
     open(file).close()
+
+def decrypt(file,x,y):
+partial_keys = get_all_partial_keys(['e', 't', 'a', 'o'], LetterCounter(file, y)) #use partial keys to generate dictionaries set, y is the # of letters to get, bigger the y, bigger the # of key dicts(more combos)
+dict_key = partial_keys[x]  #x is the chosen set of dict keys out of all possible combos
+print(dict_key)
+with open(file) as word_list: #open example ciphertext file and put every word in a list
+    words_list = word_list.read().split()
+    print(words_list)
+    result_list = []
+    #for i in dict_key
+    for word in words_list:
+        new_word = ''
+        for char in word:
+            for i in dict_key:
+                if char == dict_key[i]:
+                    new_word += i
+                else:
+                    new_word += char
+                    break
+        result_list.append(new_word)
+    print(result_list)
+
+decrypt('ciphertext_ex.txt',1,4)

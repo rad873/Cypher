@@ -53,7 +53,36 @@ with open(file) as word_list: #open example ciphertext file and put every word i
         result_list.append(new_word)
     print(result_list)
 
+def one_letter_check(a_list):
+    check = True
+    for word in a_list: #takes each word in the list of length 1, returns false if any undecryted word is not 'i' or 'a'
+        if len(word) == 1:
+            if word in 'ia':
+                check = True
+            else:
+                return(False)
+        else:
+            pass
+    return(check)
 
+def all_vowel_check(a_list):
+    for word in a_list: # for each word in the given list
+        checkable = True
+        vowels = 0
+        if len(word) == 1: # ignoring 1 letter words like i or a
+            continue
+        for letter in word:
+            if letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ": #ignoring undecrypted words
+                checkable=False
+            elif letter in 'aeiou': # counting the number of vowels in the word
+                vowels += 1
+        if not checkable:
+            continue
+        elif vowels == len(word): #only returns false if a word in the list has all vowels, and isn't i or a
+            return(False)
+        else:
+            continue
+    return(True)
 
 def decrypt(file,x,y):
     partial_keys = get_all_partial_keys(['e', 't', 'a', 'o'], LetterCounter(file, y)) #use partial keys to generate dictionaries set, y is the # of letters to get, bigger the y, bigger the # of key dicts(more combos)

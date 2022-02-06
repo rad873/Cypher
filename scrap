@@ -1,0 +1,12 @@
+def scrap(result_list):
+    '''
+    :param result_list: possible decoded ciphers
+    :return: remaining valid decoded ciphers
+    '''
+    all_words = open('words.txt')
+    all_words = all_words.read().split()
+    for item in result_list:
+        if item.islower() == True:
+            if item not in all_words:
+                result_list = []
+    return(result_list)

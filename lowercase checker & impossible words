@@ -1,0 +1,21 @@
+def lowercase_checker(word):
+    '''function takes in a string and return True if it is all lowercase and False otherwise'''
+    lowercase_check = word.islower()
+    if lowercase_check == True:
+        return True
+    else:
+        return False
+
+
+def impossibleword(word):
+    '''function takes a string as input, loop through words.txt and see if the string matches with a word from the dictionary'''
+    with open('words.txt') as word_list: #open example ciphertext file and put every word in a list
+        words_list = word_list.read().split()
+        for x in words_list:
+            if word == x:
+                return True
+                #print(word)
+                #print('MATCH FOUND')
+            else:
+                return False
+                #print('INVALID WORD')

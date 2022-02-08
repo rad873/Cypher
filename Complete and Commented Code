@@ -19,7 +19,7 @@ def letter_counter(file, x):
     dictionary_descending =sorted(dictionary, key=dictionary.get, reverse= True)
     for r in dictionary_descending:
         the_list.append(r)
-        if len(list) > x - 1:
+        if len(the_list) > x - 1:
             return(the_list)
 
 
